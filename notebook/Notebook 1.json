@@ -21,9 +21,6 @@
 		},
 		"metadata": {
 			"saveOutput": true,
-			"synapse_widget": {
-				"version": "0.1"
-			},
 			"kernelspec": {
 				"name": "synapse_pyspark",
 				"display_name": "Synapse PySpark"
@@ -44,8 +41,9 @@
 				"nodeCount": 3,
 				"cores": 4,
 				"memory": 28,
-				"extraHeader": null
-			}
+				"automaticScaleJobs": false
+			},
+			"sessionKeepAliveTimeout": 30
 		},
 		"cells": [
 			{
@@ -53,8 +51,7 @@
 				"source": [
 					"print('hello world')"
 				],
-				"attachments": null,
-				"execution_count": 5
+				"execution_count": 6
 			}
 		]
 	}
