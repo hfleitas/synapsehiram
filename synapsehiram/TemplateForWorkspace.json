@@ -7,9 +7,17 @@
 			"metadata": "Workspace name",
 			"defaultValue": "synapsehiram"
 		},
+		"hiramblob_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'hiramblob'"
+		},
 		"synapsehiram-WorkspaceDefaultSqlServer_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'synapsehiram-WorkspaceDefaultSqlServer'"
+		},
+		"hiramblob_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://hiramblob.dfs.core.windows.net"
 		},
 		"synapsehiram-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"type": "string",
@@ -20,6 +28,29 @@
 		"workspaceId": "[concat('Microsoft.Synapse/workspaces/', parameters('workspaceName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('workspaceName'), '/hiramblob')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('hiramblob_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('hiramblob_accountKey')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "AutoResolveIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
+		},
 		{
 			"name": "[concat(parameters('workspaceName'), '/synapsehiram-WorkspaceDefaultSqlServer')]",
 			"type": "Microsoft.Synapse/workspaces/linkedServices",
@@ -136,20 +167,37 @@
 						"sparkVersion": "2.4",
 						"nodeCount": 3,
 						"cores": 4,
-						"memory": 28,
-						"automaticScaleJobs": false
-					},
-					"sessionKeepAliveTimeout": 30
+						"memory": 28
+					}
 				},
 				"cells": [
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"print('hello world')"
 						],
 						"outputs": [],
 						"execution_count": 6
+					},
+					{
+						"cell_type": "code",
+						"metadata": {
+							"jupyter": {
+								"source_hidden": false,
+								"outputs_hidden": false
+							},
+							"nteract": {
+								"transient": {
+									"deleting": false
+								}
+							},
+							"collapsed": true
+						},
+						"source": [
+							"print('hello world')"
+						],
+						"outputs": [],
+						"execution_count": 4
 					}
 				]
 			},
@@ -227,19 +275,6 @@
 			},
 			"dependsOn": [],
 			"location": "eastus2"
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/Spark job definition 1')]",
-			"type": "Microsoft.Synapse/workspaces/sparkJobDefinitions",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"targetBigDataPool": {
-					"type": "BigDataPoolReference"
-				},
-				"language": "scala",
-				"jobProperties": {}
-			},
-			"dependsOn": []
 		}
 	]
 }

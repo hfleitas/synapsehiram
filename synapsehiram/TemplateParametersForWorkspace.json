@@ -5,8 +5,14 @@
 		"workspaceName": {
 			"value": "synapsehiram"
 		},
+		"hiramblob_accountKey": {
+			"value": ""
+		},
 		"synapsehiram-WorkspaceDefaultSqlServer_connectionString": {
 			"value": ""
+		},
+		"hiramblob_properties_typeProperties_url": {
+			"value": "https://hiramblob.dfs.core.windows.net"
 		},
 		"synapsehiram-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"value": "https://lakehiram.dfs.core.windows.net"
