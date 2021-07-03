@@ -49,9 +49,9 @@
 			{
 				"cell_type": "code",
 				"source": [
-					"print('hello world')"
+					"print('hello synapse')"
 				],
-				"execution_count": 6
+				"execution_count": 5
 			},
 			{
 				"cell_type": "code",
@@ -68,9 +68,9 @@
 					"collapsed": true
 				},
 				"source": [
-					"print('hello world')"
+					"print('hello hiram')"
 				],
-				"execution_count": 4
+				"execution_count": 6
 			}
 		]
 	}
