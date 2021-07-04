@@ -167,20 +167,17 @@
 						"sparkVersion": "2.4",
 						"nodeCount": 3,
 						"cores": 4,
-						"memory": 28,
-						"automaticScaleJobs": false
-					},
-					"sessionKeepAliveTimeout": 30
+						"memory": 28
+					}
 				},
 				"cells": [
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"print('hello synapse')"
 						],
 						"outputs": [],
-						"execution_count": 5
+						"execution_count": 1
 					},
 					{
 						"cell_type": "code",
@@ -200,7 +197,7 @@
 							"print('hello hiram')"
 						],
 						"outputs": [],
-						"execution_count": 6
+						"execution_count": 2
 					}
 				]
 			},
