@@ -51,7 +51,7 @@
 				"source": [
 					"print('hello synapse')"
 				],
-				"execution_count": 5
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
@@ -70,7 +70,7 @@
 				"source": [
 					"print('hello hiram')"
 				],
-				"execution_count": 6
+				"execution_count": 2
 			}
 		]
 	}
